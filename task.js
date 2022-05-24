@@ -3,7 +3,7 @@ const tasksAdd = document.getElementById('tasks__add');
 
 tasksAdd.addEventListener('click', (event) => {
     event.preventDefault();
-    if ((taskInput.value)) {
+    if (taskInput.value.trim()) {
         // создаем html элемент
         const task = document.createElement('div');
         task.className = 'task';
@@ -20,13 +20,12 @@ tasksAdd.addEventListener('click', (event) => {
         taskRemove.innerHTML = '&times;';
         task.appendChild(taskRemove);
 
-        // чиаем поле ввода
-        taskInput.value = '';
-
         // добавляем обработчик для удаления
         taskRemove.addEventListener('click', () => {
             task.remove();
         });
     } 
+    // очищаем поле ввода
+    taskInput.value = '';
 });
 
